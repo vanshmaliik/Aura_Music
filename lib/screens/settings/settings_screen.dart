@@ -699,7 +699,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       ),
                     ),
                     Text(
-                      'Bhavneet Verma',
+                      'Vansh Malik',
                       style: TextStyle(
                         color: customBranding.accentColor,
                         fontSize: 13,
@@ -1146,7 +1146,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       'APP_DOWNLOAD_URL',
       defaultValue: String.fromEnvironment(
         'APP_SHARE_URL',
-        defaultValue: 'https://github.com/bhavneetv/Aura_Music/releases',
+        defaultValue: 'https://github.com/vanshmaliik/Aura_Music/releases',
       ),
     );
 
