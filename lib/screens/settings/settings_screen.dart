@@ -668,7 +668,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             child: InkWell(
               borderRadius: BorderRadius.circular(12),
               onTap: () async {
-                final Uri url = Uri.parse('https://www.linkedin.com/in/bhavneet-verma/');
+                final Uri url = Uri.parse('https://www.linkedin.com/in//');
                 if (await canLaunchUrl(url)) {
                   await launchUrl(url, mode: LaunchMode.externalApplication);
                 }
