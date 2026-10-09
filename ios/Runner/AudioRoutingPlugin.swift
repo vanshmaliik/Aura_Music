@@ -30,6 +30,13 @@ public class AudioRoutingPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
     }
 
     @objc private func handleRouteChange(notification: Notification) {
+        if let userInfo = notification.userInfo,
+           let reasonValue = userInfo[AVAudioSessionRouteChangeReasonKey] as? UInt,
+           let reason = AVAudioSession.RouteChangeReason(rawValue: reasonValue) {
+            if reason == .newDeviceAvailable || reason == .oldDeviceUnavailable {
+                try? AVAudioSession.sharedInstance().overrideOutputAudioPort(.none)
+            }
+        }
         sendRouteUpdate()
     }
 
@@ -47,6 +54,8 @@ public class AudioRoutingPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
             let success = setAudioOutput(typeStr: "none")
             sendRouteUpdate()
             result(success)
+        case "setVirtual3dSound":
+            result(true)
         default:
             result(FlutterMethodNotImplemented)
         }
